@@ -1,0 +1,16 @@
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/MedicalAgentApplication.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/application/dto/AvailableSlotsResponse.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/application/dto/CreateAppointmentRequest.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/application/usecase/ManageAppointmentUseCase.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/entity/Appointment.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/entity/Doctor.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/entity/Patient.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/enums/AppointmentStatus.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/port/AppointmentRepositoryPort.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/domain/port/PatientRepositoryPort.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/ai/MedicalAgentTools.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/persistence/AppointmentRepository.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/persistence/AppointmentRepositoryAdapter.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/persistence/DoctorRepository.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/persistence/PatientRepository.java
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/main/java/com/marciockalves/medicalagent/infrastructure/persistence/PatientRepositoryAdapter.java
