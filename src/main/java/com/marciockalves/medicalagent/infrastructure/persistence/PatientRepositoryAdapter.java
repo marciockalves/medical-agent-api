@@ -5,6 +5,7 @@ import com.marciockalves.medicalagent.domain.port.PatientRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,5 +33,10 @@ public class PatientRepositoryAdapter implements PatientRepositoryPort {
     @Override
     public boolean existsByCpf(String cpf) {
         return repository.existsByCpf(cpf);
+    }
+
+    @Override
+    public List<Patient> findByFullNameContainingIgnoreCase(String fullName) {
+        return repository.findByFullNameContainingIgnoreCase(fullName);
     }
 }
