@@ -1,1 +1,46 @@
-spring.application.name=medical-agent
+server:
+  port: 8000
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: medical-agent-api
+
+  # Conexão com o Banco de Dados PostgreSQL
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/medical_agent_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  # Deixamos o Flyway gerenciar o schema via migrations
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # Configurações do Spring AI (Ollama Local)
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_MODEL:llama3.2}
+
+# Configurações Globais de CORS Customizadas
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+  allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS}
+  allowed-headers: ${CORS_ALLOWED_HEADERS:*}
+
+# Configurações para Server-Sent Events (SSE) Streaming
+sse:
+  timeout: ${SSE_TIMEOUT:300000} # 5 minutos

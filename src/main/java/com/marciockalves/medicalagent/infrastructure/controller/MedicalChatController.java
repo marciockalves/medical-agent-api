@@ -1,9 +1,8 @@
 package com.marciockalves.medicalagent.infrastructure.controller;
 
+import com.marciockalves.medicalagent.infrastructure.ai.PatientTools;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
-import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -11,26 +10,27 @@ import reactor.core.publisher.Flux;
 @RestController
 @RequestMapping("/api/v1/chat")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class MedicalChatController {
 
     private final ChatClient chatClient;
+    private final PatientTools patientTools; // Injeção do Adapter da Tool de IA
 
-    public MedicalChatController(ChatClient.Builder builder) {
-        // Configura o ChatClient com memória de sessão individual e acesso às Tools
-        this.chatClient = builder
-                .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
-                .build();
-    }
 
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<String> chatStream(
-            @RequestParam(value = "sessionId") String sessionId,
-            @RequestParam(value = "message") String userMessage
-    ) {
+    public Flux<String> streamChat(
+            @RequestParam String sessionId,
+            @RequestParam String message) {
+
         return this.chatClient.prompt()
-                .user(userMessage)
-                .advisors(advisor -> advisor.param(MessageChatMemoryAdvisor.CHAT_MEMORY_CONVERSATION_ID_KEY, sessionId))
+                .user(message)
+
+                // Registra o PatientTools no ChatClient do Spring AI.
+                // O Spring AI envia essa especificação para a OpenAI.
+                // Se a IA decidir acionar a busca de paciente, o Spring AI chama
+                // o PatientTools -> FindPatientByNameUseCase -> Banco e devolve o resultado.
+                .tools(patientTools)
+
+                .advisors(advisor -> advisor.param("chat_memory_conversation_id", sessionId))
                 .stream()
                 .content();
     }
