@@ -6,6 +6,15 @@ server:
       enabled: true
       force: true
 
+logging:
+  level:
+    root: INFO
+    org.springframework.ai: DEBUG
+    org.springframework.web.client.RestClient: INFO
+    org.springframework.http.client.support: DEBUG
+    org.springframework.ai.chat.client.advisor: INFO
+    org.springframework.ai.chat.memory: INFO
+    org.springframework.ai.chat.metadata: WARN
 spring:
   application:
     name: medical-agent-api
@@ -26,6 +35,7 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
   flyway:
     enabled: true
 
@@ -35,7 +45,7 @@ spring:
       base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
       chat:
         options:
-          model: ${OLLAMA_MODEL:llama3.2}
+          model: ${OLLAMA_MODEL:qwen2.5:3b}
 
 # Configurações Globais de CORS Customizadas
 cors:

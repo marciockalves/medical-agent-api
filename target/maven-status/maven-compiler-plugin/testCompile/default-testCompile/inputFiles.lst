@@ -1,2 +1,3 @@
+/Users/marciockalvesgmail.com/Projects/medical-agent-api/src/test/java/com/marciockalves/medicalagent/application/usecase/CreatePatientUseCaseTest.java
 /Users/marciockalvesgmail.com/Projects/medical-agent-api/src/test/java/com/marciockalves/medicalagent/application/usecase/FindPatientByNameUseCaseTest.java
 /Users/marciockalvesgmail.com/Projects/medical-agent-api/src/test/java/com/marciockalves/medicalagent/infrastructure/ai/PatientToolsTest.java

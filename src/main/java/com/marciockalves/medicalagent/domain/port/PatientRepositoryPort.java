@@ -11,5 +11,6 @@ public interface PatientRepositoryPort {
     Optional<Patient> findByCpf(String cpf);
     Optional<Patient> findById(UUID id);
     boolean existsByCpf(String cpf);
+    boolean existsByEmail(String email); // <-- Novo método adicionado
     List<Patient> findByFullNameContainingIgnoreCase(String name);
 }

@@ -5,11 +5,15 @@ com/marciockalves/medicalagent/infrastructure/persistence/AppointmentRepositoryA
 com/marciockalves/medicalagent/application/dto/PatientStatusDTO$PatientStatusDTOBuilder.class
 com/marciockalves/medicalagent/application/usecase/FindPatientByNameUseCase.class
 com/marciockalves/medicalagent/application/dto/AvailableSlotsResponse.class
+com/marciockalves/medicalagent/application/usecase/CreatePatientUseCase.class
 com/marciockalves/medicalagent/domain/entity/Doctor.class
 com/marciockalves/medicalagent/MedicalAgentApplication.class
+com/marciockalves/medicalagent/infrastructure/ai/PatientTools$CreatePatientRequest.class
+com/marciockalves/medicalagent/application/dto/CreatePatientInput.class
 com/marciockalves/medicalagent/infrastructure/persistence/DoctorRepository.class
 com/marciockalves/medicalagent/domain/port/PatientRepositoryPort.class
 com/marciockalves/medicalagent/application/dto/CreateAppointmentRequest.class
+com/marciockalves/medicalagent/application/dto/PatientOutput.class
 com/marciockalves/medicalagent/infrastructure/persistence/PatientRepositoryAdapter.class
 com/marciockalves/medicalagent/domain/entity/Doctor$DoctorBuilder.class
 com/marciockalves/medicalagent/domain/entity/Patient.class

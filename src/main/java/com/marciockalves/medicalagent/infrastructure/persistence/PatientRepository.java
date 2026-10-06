@@ -15,5 +15,7 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
 
     boolean existsByCpf(String cpf);
 
+    boolean existsByEmail(String email); // <-- Novo método adicionado
+
     List<Patient> findByFullNameContainingIgnoreCase(String name);
 }
