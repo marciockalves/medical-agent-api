@@ -9,15 +9,9 @@ CREATE TABLE patients (
                           cpf VARCHAR(11) NOT NULL UNIQUE,
                           birth_date DATE NOT NULL,
                           phone VARCHAR(20) NOT NULL,
-                          zip_code VARCHAR(10) NOT NULL,
-                          street VARCHAR(150) NOT NULL,
-                          number VARCHAR(20) NOT NULL,
-                          complement VARCHAR(100),
-                          neighborhood VARCHAR(100) NOT NULL,
-                          city VARCHAR(100) NOT NULL,
-                          state VARCHAR(2) NOT NULL,
-                          created_at TIMESTAMP NOT NULL,
-                          updated_at TIMESTAMP NOT NULL
+                          email VARCHAR(255) NOT NULL UNIQUE,
+                          created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+                          updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL
 );
 
 -- 2. Doctors Table

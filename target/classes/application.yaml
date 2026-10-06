@@ -20,12 +20,14 @@ spring:
   # Deixamos o Flyway gerenciar o schema via migrations
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
 
   # Configurações do Spring AI (Ollama Local)
   ai:
