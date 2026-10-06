@@ -36,6 +36,11 @@ public class PatientRepositoryAdapter implements PatientRepositoryPort {
     }
 
     @Override
+    public boolean existsByEmail(String email) { // <-- Novo método implementado
+        return repository.existsByEmail(email);
+    }
+
+    @Override
     public List<Patient> findByFullNameContainingIgnoreCase(String fullName) {
         return repository.findByFullNameContainingIgnoreCase(fullName);
     }
