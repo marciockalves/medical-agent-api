@@ -1,5 +1,6 @@
 package com.marciockalves.medicalagent.infrastructure.controller;
 
+import com.marciockalves.medicalagent.infrastructure.ai.AppointmentTools;
 import com.marciockalves.medicalagent.infrastructure.ai.PatientTools;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ public class MedicalChatController {
 
     private final ChatClient chatClient;
     private final PatientTools patientTools;
+    private final AppointmentTools appointmentTools;
 
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> streamChat(
@@ -27,7 +29,7 @@ public class MedicalChatController {
 
         return this.chatClient.prompt()
                 .user(message)
-                .tools(patientTools)
+                .tools(patientTools, appointmentTools)
                 .advisors(advisor -> advisor.param("chat_memory_conversation_id", sessionId))
                 .stream()
                 .content()
